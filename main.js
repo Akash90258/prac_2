@@ -20,7 +20,6 @@ Apify.main(async () => {
     if (!input.data) throw new Error('Input.data is required!');
 
     input.data = JSON.parse(input.data);
-//	console.log(input.data);
     if (!input._id) throw new Error('Input must contain act execution ID!');
     if (!input.data.googleCredentialsEmail) throw new Error('Parameter input.googleCredentialsEmail is required.');
     if (!input.data.googleCredentialsPrivateKey) throw new Error('Parameter input.googleCredentialsPrivateKey is required.');
@@ -30,7 +29,7 @@ Apify.main(async () => {
     console.log('Requesting data ... ');
     const response = await Apify.client.crawlers.getExecutionResults({ executionId: input._id, simplified: 1 });
     const newData = response.items;
-	console.log(newData);
+	console.log(`... data ${newData} `);
     console.log(`... got ${newData.length} items from last crawler run ...`);
 
     const doc = new GoogleSpreadsheet(input.data.spreadsheetKey);
