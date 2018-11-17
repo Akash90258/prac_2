@@ -30,6 +30,7 @@ Apify.main(async () => {
     console.log('Requesting data ... ');
     const response = await Apify.client.crawlers.getExecutionResults({ executionId: input._id, simplified: 1 });
     const newData = response.items;
+	console.log(newData);
     console.log(`... got ${newData.length} items from last crawler run ...`);
 
     const doc = new GoogleSpreadsheet(input.data.spreadsheetKey);
