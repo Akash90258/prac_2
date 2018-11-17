@@ -20,7 +20,7 @@ Apify.main(async () => {
     if (!input.data) throw new Error('Input.data is required!');
 
     input.data = JSON.parse(input.data);
-	console.log(input.data);
+//	console.log(input.data);
     if (!input._id) throw new Error('Input must contain act execution ID!');
     if (!input.data.googleCredentialsEmail) throw new Error('Parameter input.googleCredentialsEmail is required.');
     if (!input.data.googleCredentialsPrivateKey) throw new Error('Parameter input.googleCredentialsPrivateKey is required.');
